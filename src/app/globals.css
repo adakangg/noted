@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+.light {       
+  --background: #eeeeee;  
+  --foreground: #191919;    
+  --muted-foreground: #3c3d46;  
+  --modal-background: #f5f5f5;  
+  --sidebar-background: var(--modal-background);
+  --modal-border: #dadada; 
+  --primary: #8373c2; 
+  --primary-foreground: #f0f0f0; 
+  --muted-primary: #6c5fa3;    
+  --light-modal-background: #e6e6e6;   
+  --light-modal-border: #d5d4d6;     
+  --secondary: #ec8cbf; 
+  --muted-button-border: var(--light-modal-border);
+  --input-background: var(--modal-background); 
+  --editor-string: #0c77a8;
+  --editor-keyword: #6e66b3;
+  --editor-title: #b35e25;
+  --editor-bold: #b8386b;
+  --editor-border: #979797; 
+  --sidebar-hover-background: var(--light-modal-background); 
+  --widget-border: var(--modal-border);
+  --highlight: #81F976;
+}  
+
+.dark {
+  --background: #121218; 
+  --sidebar-background: var(--background);
+  --modal-background: #1e1e29;   
+  --modal-border: #2b2b3b; 
+  --light-modal-background: #292938;   
+  --light-modal-border: #37374d;      
+  --foreground: #dadada;   
+  --muted-foreground: #a3a7b9;  
+  --primary: #7b66a3; 
+  --primary-foreground: #f0f0f0; 
+  --muted-primary: #594877;  
+  --secondary: #d4619e;
+  --muted-button-border: var(--modal-background);
+  --input-background: var(--light-modal-background);
+  --editor-string: #7de2f7;
+  --editor-keyword: #bc9ff1; 
+  --editor-title: #f0aa60;
+  --editor-bold: #ec8cbf;
+  --editor-border: var(--primary); 
+  --sidebar-hover-background: var(--modal-background);
+  --widget-border: var(--background);
+  --highlight: #81F976;
+}     
+
+@layer base {
+  body {
+    background: var(--background);
+    font-family: var(--font-dm-sans), sans-serif;
+  }
+
+  ::selection {
+    background: var(--highlight) !important;
+    color: black !important;
+  } 
+
+  ol {
+    padding-left: 1.7rem;
+    list-style-type: decimal;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  } 
+
+  .MuiTooltip-tooltip { 
+    background: var(--light-modal-background) !important;
+    color: var(--foreground) !important; 
+    padding: 2px 8px !important;
+    border-radius: 3px !important;
+    border: 1px solid var(--light-modal-border) !important;
+    font-family: var(--font-jetbrains-mono), sans-serif !important;      
+  } 
+
+  .MuiMenu-paper, .MuiPaper-root {   
+    margin-top: 0.25rem !important;
+    color: var(--primary-foreground) !important; 
+  }  
+
+  input { width: 100% } 
+  input::placeholder { color: var(--muted-foreground) } 
+  input:focus { outline: none }
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--input-background) inset !important;  
+    -webkit-text-fill-color: var(--foreground) !important;  
+  }  
+
+  .no-spinner { -moz-appearance: textfield }
+  .no-spinner::-webkit-outer-spin-button,
+  .no-spinner::-webkit-inner-spin-button { 
+    margin: 0;
+    -webkit-appearance: none; 
+  }
+
+  .custom-scrollbar::-webkit-scrollbar { width: 8px }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent } 
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--foreground) }
+  .custom-scrollbar { 
+    scrollbar-width: thin; 
+    scrollbar-color: gray transparent; 
+  }   
+  
+  /* Remirror Editor Styles */
+  .remirror-theme {  
+    flex: 1 !important;
+    overflow: hidden !important;
+  }
+
+  .remirror-editor { overflow: hidden !important }  
+
+  .ProseMirror { 
+    box-shadow: none !important;
+    outline: 1px solid var(--modal-border) !important; 
+  }
+
+  .ProseMirror:focus { outline: 2px solid var(--editor-border) !important }  
+
+  .remirror-collapsible-list-item-button { background: var(--muted-foreground) !important }
+
+  .remirror-list-spine { border-left: var(--muted-foreground) !important }
+
+  .token.bold, 
+  .token.italic, 
+  .token.title.punctuation, 
+  .token.bold.punctuation, 
+  .token.italic.punctuation { color: var(--editor-bold) !important }  
+
+  .token.code-block.punctuation, 
+  .token.list, 
+  .token.code.keyword, 
+  .token.code-block.operator, 
+  .token.operator, 
+  .token.punctuation { color: var(--foreground) !important }  
+
+  .token.title, .token.number, .token.boolean  { color: var(--editor-title) !important }   
+
+  .token.keyword.token.code-block, .token.keyword  { color: var(--editor-keyword) !important }  
+
+  .token.string { color: var(--editor-string) !important }   
+}
+
+@layer utilities {  
+  .primary-button-bg { @apply bg-[var(--primary)] text-[var(--primary-foreground)] hover:!bg-[var(--muted-primary)]; }
+
+  .muted-button-bg { @apply bg-[var(--modal-background)] outline-1 outline-[var(--muted-button-border)] hover:!bg-[var(--light-modal-background)]; } 
+
+  .card-bg { @apply bg-[var(--modal-background)] hover:bg-[var(--background)] outline-2 outline-[var(--widget-border)] hover:outline-[var(--modal-border)]; }
+ 
+  .highlighted::after { 
+    @apply absolute -z-1 top-54/100 left-0 h-38/100 w-[calc(100%+0.5rem)] -ml-[0.3rem] bg-[var(--primary)] content-[""];
+    animation: drawHighlight 1s ease forwards;
+  }  
+
+  @keyframes drawHighlight {
+    0% { width: 0 }
+    100% { width: calc(100%+0.5rem) }
+  }  
+
+  .parent-shake-anim:hover .child-shake-anim { animation: shake 0.5s ease-in-out }
+
+  @keyframes shake {
+    0% { transform: rotate(0deg) }
+    25% { transform: rotate(5deg) }
+    50% { transform: rotate(-5deg) }
+    75% { transform: rotate(3deg) }
+    100% { transform: rotate(0deg) }
+  } 
+}
+
+@layer components {        
+  .waveform-bar {  
+    animation: waveformPulseHeight var(--duration) ease-in-out infinite;
+    animation-play-state: var(--play-state, running);  
+    transform-origin: bottom; 
+    transition: opacity 0.3s ease;
+  }    
+  
+  @keyframes waveformPulseHeight {
+    0% { height: var(--min-height) };
+    50% { height: var(--max-height) };
+    100% { height: var(--min-height) };
+  }   
+
+  .custom-button { @apply text-[0.7rem] leading-none p-1.5 rounded-sm cursor-pointer; }
+
+  .custom-input {
+    @apply bg-[var(--input-background)] outline-1 outline-[var(--modal-background)] focus-within:outline-[var(--primary)] hover:outline-[var(--primary)] rounded-sm flex flex-row items-center justify-between w-full text-[var(--foreground)] px-2 py-1.5;
+  }     
+
+  .bullet-point { @apply inline-block min-h-1.5 min-w-1.5 max-h-1.5 max-w-1.5 rounded-full bg-[var(--foreground)] mt-4; }
+
+  .toolbar-btn { @apply relative w-6 h-6 flex flex-col justify-center rounded-xs hover:!bg-[var(--secondary)] cursor-pointer; } 
+  .toolbar-menu { 
+    @apply absolute top-6 z-100 hidden group-hover:block bg-[var(--light-modal-background)] rounded-xs p-[1px] border-[1px] border-[var(--light-modal-border)]; 
+  }  
+  .toolbar-menu-item { @apply p-1 text-xs leading-none whitespace-nowrap hover:bg-[var(--secondary)]; }    
+}
