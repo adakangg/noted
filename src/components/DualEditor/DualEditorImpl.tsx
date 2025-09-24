@@ -13,8 +13,7 @@ import {
   BulletListExtension,
   CodeBlockExtension,
   CodeExtension,
-  DocExtension,
-  FontSizeExtension,
+  DocExtension, 
   HardBreakExtension,
   HeadingExtension, 
   ItalicExtension,
@@ -88,7 +87,10 @@ const MarkdownEditor = ({ isFirstRender }: { isFirstRender: React.MutableRefObje
         css`
           &.ProseMirror {     
             background-color: var(--modal-background) !important; 
-            pre { background-color: var(--modal-background) !important }   
+            pre { 
+              background-color: var(--modal-background) !important;
+              font-size: 0.95rem !important;  
+            }   
             code {   
               font-family: var(--font-jetbrains-mono), sans-serif;    
               color: var(--foreground) !important; 
@@ -117,8 +119,8 @@ const VisualEditor = ({ initialContent, onDownload }: VisualEditorProps) => {
       onChange={({ helpers, state }) => setMarkdown(helpers.getMarkdown(state)) } 
       classNames={[
         css`
-          &.ProseMirror {         
-            font-size: var(--text-sm);      
+          &.ProseMirror {        
+            font-size: 0.95rem !important;   
             padding: 2rem 2rem 0.75rem 2rem !important;
             background-color: var(--modal-background) !important; 
             h1, h2, h3, h4, h5, h6 {
@@ -221,8 +223,7 @@ const extensions = () => [
   new TrailingNodeExtension({}),
   new TableExtension({}),
   new MarkdownExtension({ copyAsMarkdown: false }),
-  new HardBreakExtension(),
-  new FontSizeExtension({ defaultSize: "14", unit: "px" })
+  new HardBreakExtension()
 ];  
 
 const DEFAULT_CONTENT = `

@@ -14,7 +14,7 @@ type FormInputWrapperProps = {
 
 export const FormInputWrapper = ({ label, inputId, children, onAddBtnClick }: FormInputWrapperProps) => (
     <div className="flex flex-col w-full gap-0.5">
-        <label htmlFor={inputId} className="text-xs w-full"> {label} </label>
+        <label htmlFor={inputId} className="text-[0.8rem] text-[var(--muted-foreground)] w-full"> {label} </label>
         <div className="custom-input border-1 border-[var(--muted-button-border)] group focus-within:outline-[var(--primary)]">    
             {children}
             { onAddBtnClick && (
@@ -36,7 +36,7 @@ type FormButtonsProps = {
 
 export const FormButtons = ({ className = "", error, onCancel }: FormButtonsProps) => (
     <div className="flex flex-col items-end gap-1 w-full">
-        { error && <p className="text-red-400 text-[0.7rem]"> {error} </p> }
+        { error && <p className="text-red-400 text-xs"> {error} </p> }
         <div className="flex flex-row justify-end gap-2 w-full">
             { onCancel && (
                 <button 

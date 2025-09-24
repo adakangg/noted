@@ -61,7 +61,7 @@ const UserNotesPage = () => {
     const searchTitle = searchTermRef.current?.value; 
     if (searchTitle && notes) {     
       const filteredNotes = notes.filter(note => (
-        note.title.toLowerCase().includes(searchTitle.toLowerCase()) && 
+        note.title.toLowerCase().includes(searchTitle.trim().toLowerCase()) && 
         tagFilters?.every(selectedTag => note.tags?.some(tag => tag.id === selectedTag.id))
       ));  
       setMatchingNotes(filteredNotes);

@@ -11,13 +11,13 @@ export const TagChip = ({ tag, onTagClick = () => {}, onBtnClick }: TagChipProps
     <div 
         onClick={onTagClick} 
         style={{ backgroundColor: tag.background_color, color: tag.text_color }}
-        className="flex flex-row gap-1.5 max-w-20 leading-none px-2 py-0.75 text-[0.67rem] font-medium rounded-sm cursor-default"
+        className="flex flex-row break-all gap-1.5 h-fit max-w-20 leading-none px-2 py-1 text-[0.8rem] font-medium rounded-sm cursor-default"
     > 
         {tag.name} 
         { onBtnClick && (
             <IconButton 
                 icon="close" 
-                iconProps={{ size: "var(--text-xs)" }}
+                iconProps={{ size: "0.8rem" }}
                 onClick={onBtnClick} 
                 className="-mr-1" 
             /> 

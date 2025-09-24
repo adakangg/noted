@@ -189,7 +189,7 @@
     100% { height: var(--min-height) };
   }   
 
-  .custom-button { @apply text-[0.7rem] leading-none p-1.5 rounded-sm cursor-pointer; }
+  .custom-button { @apply !text-[0.8rem] leading-none px-2 py-1.5 rounded-sm cursor-pointer; }
 
   .custom-input {
     @apply bg-[var(--input-background)] outline-1 outline-[var(--modal-background)] focus-within:outline-[var(--primary)] hover:outline-[var(--primary)] rounded-sm flex flex-row items-center justify-between w-full text-[var(--foreground)] px-2 py-1.5;

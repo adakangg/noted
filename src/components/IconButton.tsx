@@ -23,16 +23,12 @@ export const IconButton = ({
     className = "", 
     onClick = () => {} 
 }: IconButtonProps) => (  
-    <Tooltip 
-        title={tooltip} 
-        placement="bottom"
-        componentsProps={{ tooltip: { sx: { fontSize: "0.6rem" }}}}
-    > 
+    <Tooltip title={tooltip} placement="bottom"> 
         <button  
             type="button" 
             onClick={onClick}  
             className={`flex flex-row items-center gap-1 whitespace-nowrap cursor-pointer w-fit h-fit
-                ${ text ? "p-2.5 text-[0.8rem] font-medium rounded-sm" : "rounded-xs hover:outline-1 hover:outline-[var(--muted-foreground)]" } ${className}
+                ${ text ? "p-2.5 text-sm rounded-sm" : "rounded-xs hover:outline-1 hover:outline-[var(--muted-foreground)]" } ${className}
             `} 
         >  
             { icon && (
@@ -40,7 +36,7 @@ export const IconButton = ({
                     className={`material-symbols-outlined w-fit ${iconProps?.className ?? ""}`}
                     style={{ 
                         fontVariationSettings: `'FILL' ${iconProps?.fill ?? "0"}`, 
-                        fontSize: iconProps?.size ?? "var(--text-sm)" 
+                        fontSize: iconProps?.size ?? "1rem" 
                     }}
                 >
                     {icon}

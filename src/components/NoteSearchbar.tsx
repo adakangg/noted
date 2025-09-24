@@ -13,7 +13,7 @@ type TagMenuItemProps = {
 export const TagMenuItem = ({ onClick, isSelected, tag }: TagMenuItemProps) => (
   <div  
     onClick={onClick} 
-    className="flex flex-row items-center gap-1.5 text-xs text-[var(--foreground)] font-medium leading-none p-1.5 hover:bg-[var(--light-modal-border)] rounded-xs cursor-pointer"
+    className="flex flex-row items-center gap-1.5 text-[0.8rem] text-[var(--foreground)] font-medium leading-none p-1.5 hover:bg-[var(--light-modal-border)] rounded-xs cursor-pointer"
   >
     { isSelected ? (
       <span className="material-symbols-outlined text-green-500 -mx-0.5" style={{ fontSize: "1rem" }}> 
@@ -88,14 +88,13 @@ export const Searchbar = ({ inputref, onSearch, tags, tagFilters, toggleTagFilte
       <div className="flex flex-row items-center gap-3 w-full">
         <span  
           className="material-symbols-outlined text-[var(--muted-foreground)]"
-          style={{ fontSize: "var(--text-lg)" }}
+          style={{ fontSize: "var(--text-xl)" }}
         >
           search
         </span> 
         <input 
           ref={inputref}  
-          placeholder="Search notes by title" 
-          className="text-sm" 
+          placeholder="Search notes by title"  
           onKeyDown={e => { if (e.key === "Enter") onSearch() }}         
         />
       </div>   

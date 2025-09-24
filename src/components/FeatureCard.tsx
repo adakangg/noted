@@ -9,7 +9,7 @@ export const FeatureCard = ({ icon, title, text }: FeatureCardProps) => (
         <span className="child-shake-anim text-[3rem]"> {icon} </span>
         <div className="flex flex-col gap-1.5">
             <p className="text-lg font-semibold mt-2"> {title} </p>  
-            <p className="text-xs text-[var(--muted-foreground)]"> {text} </p> 
+            <p className="text-[0.8rem] text-[var(--muted-foreground)]"> {text} </p> 
         </div>
     </div> 
 );

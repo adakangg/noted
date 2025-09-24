@@ -49,7 +49,7 @@ export const TagForm  = ({ isOpen, closeForm }: TagFormProps) => {
         if (user && tagNameRef.current && tagName?.length) {
             const newTag = { 
                 id: crypto.randomUUID(), 
-                name: tagName, 
+                name: tagName.trim(), 
                 background_color: tagColor.background_color, 
                 text_color: tagColor.text_color, 
                 user_id: user.id 
@@ -109,7 +109,7 @@ export const TagForm  = ({ isOpen, closeForm }: TagFormProps) => {
                     ref={tagNameRef} 
                     onChange={() => { if (formErr) setFormErr("") }} 
                     placeholder="name" 
-                    className="text-xs" 
+                    className="text-sm" 
                 />  
             </FormInputWrapper>  
  
@@ -119,7 +119,7 @@ export const TagForm  = ({ isOpen, closeForm }: TagFormProps) => {
                     <div 
                         key={tag.background_color}
                         onClick={() => setTagColor(tag)} 
-                        className="flex flex-col items-center w-3.5 h-3.5 rounded-lg cursor-pointer" 
+                        className="flex flex-col items-center w-4 h-4 rounded-lg cursor-pointer" 
                         style={{ backgroundColor: tag.background_color }} 
                         content=""
                     > 
@@ -136,9 +136,9 @@ export const TagForm  = ({ isOpen, closeForm }: TagFormProps) => {
             </div>
  
             {/* Current User Tags List */}
-            <p className="text-xs w-full mt-6"> Your Tags </p>
+            <p className="text-[0.8rem] text-[var(--muted-foreground)] w-full mt-6"> Your Tags </p>
             { tags && (
-                <div className="flex flex-row flex-wrap overflow-y-auto max-h-12 gap-x-2 gap-y-1">
+                <div className="flex flex-row flex-wrap max-h-12 gap-x-2 gap-y-1 overflow-y-auto custom-scrollbar">
                     { currentTags.map((tag, index) => (
                         <TagChip 
                             key={tag.id} 

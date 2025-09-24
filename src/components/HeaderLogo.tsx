@@ -8,6 +8,6 @@ export const HeaderLogo = ({ onClick = () => {}, className = "" }: HeaderLogoPro
     <span className="material-symbols-outlined" style={{ fontSize: "1.3rem" }}> 
       book
     </span>
-    <div className={`text-xl font-medium ${className}`}> NOTED </div>
+    <div className={`text-[1.4rem] font-medium ${className}`}> NOTED </div>
   </div>  
 );

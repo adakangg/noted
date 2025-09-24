@@ -65,7 +65,7 @@ export const NoteForm = ({ isOpen, note, onSubmit, closeForm }: NoteFormProps) =
             await saveTagChanges();
             const updatedNote = {  
                 ...note,
-                title: noteNameRef.current?.value ?? "New Note", 
+                title: noteNameRef.current?.value.trim() ?? "New Note", 
                 tags: selectedTags 
             }; 
             onSubmit(updatedNote, true);
@@ -95,12 +95,12 @@ export const NoteForm = ({ isOpen, note, onSubmit, closeForm }: NoteFormProps) =
                     ref={noteNameRef} 
                     defaultValue={note?.title}  
                     placeholder="title" 
-                    className="text-xs"
+                    className="text-sm"
                 />
             </FormInputWrapper> 
                  
             {/* Selected Tags List */}
-            <p className="text-xs w-full mt-3 -mb-1.5"> Tags </p> 
+            <p className="text-[0.8rem] text-[var(--muted-foreground)] w-full mt-3 -mb-1.5"> Tags </p> 
             <div 
                 onClick={e => setAnchorEl(e.currentTarget)}  
                 className={`custom-input border-1 border-[var(--muted-button-border)] !px-1.5 ${ anchorEl && "outline-[var(--primary)]" }`}
@@ -119,7 +119,7 @@ export const NoteForm = ({ isOpen, note, onSubmit, closeForm }: NoteFormProps) =
                         ))}
                     </div>
                 ) : (
-                    <p className="text-[0.7rem] text-[var(--muted-foreground)]"> Select Tags </p>
+                    <p className="text-sm text-[var(--muted-foreground)]"> Select Tags </p>
                 )} 
                 <span 
                     className="material-symbols-outlined text-[var(--muted-foreground)] cursor-default ml-auto" 

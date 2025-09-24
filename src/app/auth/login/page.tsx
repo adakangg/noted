@@ -1,7 +1,9 @@
 "use client" 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { login, signup } from "./actions";  
 import { FormButtons, FormInputWrapper } from "@/components/forms/FormDialog";
+import { useCurrentUser } from "@/app/hooks/useUser";
+import { useRouter } from "next/navigation";
 
 type TabProps = {  
     id: string;
@@ -14,7 +16,7 @@ const Tab = ({ id, label, selected, onClick }: TabProps ) => (
     <h2 
         id={id}
         onClick={onClick}
-        className={`min-w-1/2 px-10 py-1 text-xs text-center whitespace-nowrap rounded-sm cursor-pointer
+        className={`min-w-1/2 px-12 py-1 text-[0.85rem] text-center whitespace-nowrap rounded-sm cursor-pointer
             ${ selected && "bg-[var(--primary))] text-[var(--primary-foreground)]" }
         `}
     > 
@@ -25,10 +27,16 @@ const Tab = ({ id, label, selected, onClick }: TabProps ) => (
 const isValidEmail = (str: string) => /.+@.+\..+/.test(str);
  
 const LoginPage = () => {
+    const router = useRouter();   
+    const { data: user } = useCurrentUser();  
     const [isLogin, setIsLogin] = useState(true);
     const [formErr, setFormErr] = useState("");
     const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null); 
+    
+    useEffect(() => {
+        if (user) router.push("/notes");
+    }, [user, router]);
 
     const switchTab = (setLogin: boolean) => {
         if (formErr !== "") setFormErr("");
@@ -57,7 +65,7 @@ const LoginPage = () => {
     }; 
 
     return (
-        <div className="flex w-full h-full"> 
+        <div className="flex w-full h-full">  
             <div className="flex flex-col items-center m-auto p-6 bg-[var(--modal-background)] rounded-sm">  
                 <h1 className="text-2xl font-semibold mb-4"> Welcome </h1> 
                 <form 
@@ -80,14 +88,14 @@ const LoginPage = () => {
                         /> 
                     </div>  
                     <FormInputWrapper label="Email" inputId="email">
-                        <input id="email" ref={emailRef} className="text-xs"/>
+                        <input id="email" ref={emailRef} className="text-sm"/>
                     </FormInputWrapper>  
                     <FormInputWrapper label="Password" inputId="password">
-                        <input id="password" ref={passwordRef} type="password" className="text-xs"/>
+                        <input id="password" ref={passwordRef} type="password" />
                     </FormInputWrapper>  
                     <FormButtons error={formErr} className="text-[0.8rem] py-2"/> 
                 </form>
-            </div> 
+            </div>  
         </div> 
     );
 }; 

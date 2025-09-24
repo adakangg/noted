@@ -43,11 +43,11 @@ const SidebarItem = ({ icon, label, children, onClick, isSelected = false }: Sid
           ${isSelected && "bg-[var(--sidebar-hover-background)]"}
         `}
       > 
-        <span className="material-symbols-outlined px-0.5" style={{ fontSize: "1rem" }}> {icon} </span>  
+        <span className="material-symbols-outlined px-0.5" style={{ fontSize: "var(--text-lg)" }}> {icon} </span>  
         <div className={`flex flex-row justify-between w-full ${ !sidebarOpen && "!hidden" }`}>
-          <p className="text-[0.75rem] leading-none"> {label} </p> 
+          <p className="text-[0.9rem] leading-none"> {label} </p> 
           { children && (
-            <span className="material-symbols-outlined" style={{ fontSize: "var(--text-xs)" }}> 
+            <span className="material-symbols-outlined" style={{ fontSize: "var(--text-sm)" }}> 
               { expanded ? "keyboard_arrow_up" : "keyboard_arrow_down" }
             </span>
           )}
@@ -96,7 +96,7 @@ const Sidebar = () => {
       />
 
       {/* Main Body + Widgets */}
-      <p className="text-[0.6rem] text-[var(--muted-foreground)] -mb-3"> MENU </p>
+      <p className="text-[0.7rem] text-[var(--muted-foreground)] -mb-3"> MENU </p>
       { user && (
         <SidebarItem 
           icon="dashboard" 
@@ -130,8 +130,8 @@ const Sidebar = () => {
               { user.email?.charAt(0)?.toLocaleUpperCase() ?? 'U' }
             </div>   
             <div className={`flex flex-col gap-0.5 flex-1 w-full overflow-hidden ${!sidebarOpen && "!hidden"}`}>
-              <p className="text-[0.65rem] font-medium"> {user.email} </p> 
-              <p className="text-[0.62rem] text-[var(--muted-foreground)] leading-3"> Current User </p>
+              <p className="text-[0.7rem] font-medium"> {user.email} </p> 
+              <p className="text-[0.65rem] text-[var(--muted-foreground)] leading-3"> Current User </p>
             </div> 
           </div>  
         )} 

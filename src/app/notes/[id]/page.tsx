@@ -103,21 +103,19 @@ const NoteEditorPage = ({ params } : { params: Promise<{ id: string }> }) => {
                             <div className="flex flex-row items-center gap-3">
                                 <p className="text-xl font-medium"> {selectedNote.title} </p>  
                                 <IconButton
-                                    icon="edit_document" 
-                                    iconProps={{ size: "var(--text-xs)"}} 
+                                    icon="edit_document"  
                                     text="EDIT" 
                                     onClick={() => setFormOpen(true)}
-                                    className="muted-button-bg !text-xs ml-auto leading-none"
+                                    className="muted-button-bg ml-auto leading-none"
                                 /> 
                                 <IconButton
-                                    icon="download_done" 
-                                    iconProps={{ size: "var(--text-xs)"}} 
+                                    icon="download_done"  
                                     text="SAVE"
                                     onClick={() => saveNote(selectedNote, true)}
-                                    className="primary-button-bg !text-xs leading-none"
+                                    className="primary-button-bg leading-none"
                                 />   
                             </div>    
-                            <div className="flex flex-col gap-2 text-xs text-[var(--muted-foreground)]"> 
+                            <div className="flex flex-col gap-2 text-[0.85rem] text-[var(--muted-foreground)]"> 
                                 Last Saved: {formatDate(selectedNote.last_edited)}
                                 { selectedNote.tags && selectedNote.tags.length > 0 && (
                                     <div className="flex flex-row flex-wrap max-w-full gap-2">

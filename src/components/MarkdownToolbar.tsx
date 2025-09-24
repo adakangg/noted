@@ -67,7 +67,7 @@ const ToolbarButton = ({ type, onClick = () => {} }: ToolbarButtonProps) => {
         onMouseDown={e => e.preventDefault()}  
         className={`toolbar-btn hover:bg-[var(--secondary)] ${ isActive ? "bg-[var(--secondary)]" : "bg-[var(--light-modal-background)]" }`}
       >   
-        <span className="material-symbols-outlined" style={{ fontSize: "var(--text-lg)" }}> {type} </span>  
+        <span className="material-symbols-outlined" style={{ fontSize: "var(--text-xl)" }}> {type} </span>  
       </button>
     </Tooltip>
   );

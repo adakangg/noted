@@ -139,29 +139,27 @@ export const MusicPlayerWidget = () => {
     return ( 
         <> 
             { scWidgetRef.current && currentSong ? (     
-                <div className="flex flex-col w-full gap-1 text-[var(--muted-foreground)] py-0.25">     
+                <div className="flex flex-col w-full gap-1 text-[var(--muted-foreground)]">     
                     <div className="flex flex-row justify-between w-full gap-2">  
                          <Tooltip 
                             title="View on SoundCloud" 
-                            placement="top"
-                            componentsProps={{ tooltip: { sx: { fontSize: "0.6rem" }}}}
+                            placement="top" 
                         >
-                            <a href={currentSong.permalink_url} target="_blank" className="shrink-0">
-                                <img src={currentSong.artwork_url} alt="song artwork" className="w-11.75 h-11.75"/>  
+                            <a href={currentSong.permalink_url} target="_blank" className="shrink-0 flex items-center ">
+                                <img src={currentSong.artwork_url} alt="song artwork" className="w-13 h-13"/>  
                             </a> 
                         </Tooltip>  
                         <div className="flex flex-col w-full overflow-hidden">
                             <Tooltip 
                                 title={`${currentSong.title} - ${currentSong.user?.username ?? ""}`}  
-                                placement="top"
-                                componentsProps={{ tooltip: { sx: { fontSize: "0.6rem" }}}}
+                                placement="top" 
                             >
                                 <div className="w-full cursor-default">
-                                    <div className="truncate text-xs"> {currentSong.title} </div>
-                                    <div className="truncate text-[0.6rem]"> {currentSong.user?.username ?? ""} </div>
+                                    <div className="truncate text-[0.8rem]"> {currentSong.title} </div>
+                                    <div className="truncate text-[0.65rem]"> {currentSong.user?.username ?? ""} </div>
                                 </div>  
                             </Tooltip>    
-                            <div className="flex flex-row w-full gap-2 p-[0.7px] mt-1">     
+                            <div className="flex flex-row w-full gap-2 px-[1px] mt-1">     
                                 <IconButton 
                                     icon="skip_previous" 
                                     iconProps={{ fill: "1" }} 
@@ -182,7 +180,7 @@ export const MusicPlayerWidget = () => {
                                 />  
                                 <IconButton 
                                     icon={atcModeOn ? "flight" : "airplanemode_inactive"} 
-                                    iconProps={{ size: "0.65rem" }} 
+                                    iconProps={{ size: "0.8rem" }} 
                                     onClick={toggleATC}
                                     className="rotate-90 p-0.5"
                                     tooltip={`Turn ${atcModeOn ? "Off" : "On"} ATC`}
