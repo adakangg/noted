@@ -56,7 +56,7 @@ export const TimerForm  = ({ timer, onCancel, onSubmit }: TimerFormProps) => {
     
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();   
-        if (isValidTime(formData)) {
+        if (isValidTime(formData)) { 
             onSubmit(formData);
         } else {
             setFormErr("Invalid Time");  

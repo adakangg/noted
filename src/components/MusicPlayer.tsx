@@ -11,7 +11,7 @@ const WAVEFORM_BARS = [
 ];
 
 const WaveForm = ({ musicStopped }: { musicStopped: boolean }) => ( 
-    <div className="flex flex-row items-end gap-0.25 ml-auto"> 
+    <div className="flex flex-row items-end gap-0.25 ml-auto pb-0.75"> 
         { WAVEFORM_BARS.map(bar => (
             <div 
                 key={bar.minHeight} 

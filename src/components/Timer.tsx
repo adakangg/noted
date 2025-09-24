@@ -31,9 +31,9 @@ type TimerFormState = {
 export const TimerWidget = () => {   
     const intervalRef = useRef<number | null>(null);
     const [timer, setTimer] = useState<TimerState>({ 
-        totalSeconds: 5, 
-        secondsLeft: 5, 
-        fmtedTime: secondsToHMS(5), 
+        totalSeconds: 1800, 
+        secondsLeft: 1800, 
+        fmtedTime: secondsToHMS(1800), 
         isActive: false 
     }); 
     const [timerForm, setTimerForm] = useState<TimerFormState>({ timer: null, isOpen: false });  
@@ -64,7 +64,7 @@ export const TimerWidget = () => {
     }, [timer]); 
      
     const setNewTimer = (newTime: TimeValues) => {  
-        const seconds = Number((+newTime.hrs * 3600) + (+newTime.mins * 60) + newTime.secs);
+        const seconds =  (Number(newTime.hrs) * 3600) + (Number(newTime.mins) * 60) + Number(newTime.secs); 
         setTimer({ 
             totalSeconds: seconds, 
             secondsLeft: seconds, 
