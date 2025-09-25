@@ -18,7 +18,7 @@ const dmSans = DM_Sans({
 }); 
 
 export const metadata: Metadata = {
-  title: "noted - lofi notes and chill",
+  title: "noted | lofi & chill",
   description: "An all-in-one note-taking app that provides markdown or visual editing, Pomodoro sessions, and lofi beats."
 };
 

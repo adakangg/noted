@@ -228,7 +228,7 @@ const extensions = () => [
 
 const DEFAULT_CONTENT = `
 # noted 💻🪴🌃
-> "lofi notes and chill" -Socrates
+> Write. Relax. Focus. Repeat.
 ### Tips
 *   **Bold** your key points
 *   _Italicize_ for subtle emphasis   
