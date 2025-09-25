@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# noted 
 
-## Getting Started
+An all-in-one workspace that provides a dual-mode (Markdown or WYSIWYG) text editor, lofi music, and focus tools to keep you in the productivity zone. 
 
-First, run the development server:
+Built with [Next.js](https://nextjs.org/) & [Supabase](https://supabase.com/), styled with [Tailwind](https://tailwindcss.com/), and deployed on [Vercel](https://vercel.com/).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Check it out!](https://noted-lofi.vercel.app/) - Click `Use Open Editor` to start editing instantly (no signup required).
+<br>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Preview](./assets/landing_scrnshot.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
+A quick look at what noted can do:
+- **📝 Dual Editor** - Edit notes your way — raw Markdown or rich-text — whichever suits your flow. 
+- **💾 Auto-Saving** - With all changes being stored in real-time, never stress about losing progress.
+- **🗂️ Export as PDF** - Print, save, or share your notes as a PDF with one simple click.
+- **🔖 Categorize with Tags** - Keep your notes organized by labeling them with any number of tags.
+- **⏲️ Pomodoro Timer** - Stay focused and distraction-free with a built-in session timer. 
+- **🎧 Radio | ATC** - Combine lofi tracks (courtesy of [SoundCloud](https://soundcloud.com/)) with ATC chatter for the ultimate cozy workspace.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Preview](./assets/editor_scrnshot.png)
