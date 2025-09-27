@@ -5,7 +5,7 @@ type FeatureCardProps = {
 };
 
 export const FeatureCard = ({ icon, title, text }: FeatureCardProps) => (  
-    <div className="parent-shake-anim flex flex-row w-full h-full gap-3 px-5 py-3.5 rounded-lg card-bg cursor-default">  
+    <div className="parent-shake-anim flex flex-row w-full h-full gap-3 px-5 py-3.5 rounded-lg card-bg cursor-default overflow-y-auto">  
         <span className="child-shake-anim text-[3rem]"> {icon} </span>
         <div className="flex flex-col gap-1.5">
             <p className="text-lg font-semibold mt-2"> {title} </p>  

@@ -86,7 +86,7 @@ const Sidebar = () => {
 
   return (    
     <div 
-      className={`flex flex-col gap-4 h-full overflow-y-auto custom-scrollbar bg-[var(--sidebar-background)] p-2.25 border-r-1 border-r-[var(--modal-border)] 
+      className={`flex flex-col gap-4 h-full overflow-y-auto custom-scrollbar bg-[var(--sidebar-background)] px-3 py-1.75 border-r-1 border-r-[var(--modal-border)] 
         ${sidebarOpen ? "w-[13rem]" : "w-[3rem]"}
       `}
     >       
