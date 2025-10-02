@@ -176,7 +176,7 @@
 }
 
 @layer components {        
-  .waveform-bar {  
+  .waveform-bar-anim {   
     animation: waveformPulseHeight var(--duration) ease-in-out infinite;
     animation-play-state: var(--play-state, running);  
     transform-origin: bottom; 
@@ -188,6 +188,10 @@
     50% { height: var(--max-height) };
     100% { height: var(--min-height) };
   }   
+
+  .drawer { @apply absolute z-1000 h-full }
+
+  .overlay { @apply absolute z-999 !bg-[rgba(0,0,0,0.5)] w-full h-full }
 
   .custom-button { @apply !text-[0.8rem] leading-none px-2 py-1.5 rounded-sm cursor-pointer; }
 

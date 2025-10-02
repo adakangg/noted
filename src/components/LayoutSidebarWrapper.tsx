@@ -4,7 +4,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes" 
 import { useCurrentUser, useLogoutUser } from "@/app/hooks/useUser"; 
 import { useIsMobile } from "@/app/hooks/useIsMobile";  
-import { Drawer } from "@mui/material"; 
 import { MusicPlayerWidget } from "./MusicPlayer"; 
 import { TimerWidget } from "./Timer";    
 import { HeaderLogo } from "./HeaderLogo"; 
@@ -71,6 +70,7 @@ const SidebarItem = ({ icon, label, children, onClick, isSelected = false }: Sid
 const Sidebar = () => {
   const pathname = usePathname();
   const router = useRouter();    
+  const isMobile = useIsMobile();
   const { theme, setTheme } = useTheme();  
   const { data: user } = useCurrentUser();   
   const logoutUser = useLogoutUser(); 
@@ -87,7 +87,7 @@ const Sidebar = () => {
   return (    
     <div 
       className={`flex flex-col gap-4 h-full overflow-y-auto custom-scrollbar bg-[var(--sidebar-background)] px-3 py-1.75 border-r-1 border-r-[var(--modal-border)] 
-        ${sidebarOpen ? "w-[13rem]" : "w-[3rem]"}
+        ${sidebarOpen ? "w-[14rem]" : "w-[3.5rem]"} ${isMobile && "drawer"}
       `}
     >       
       <HeaderLogo 
@@ -142,36 +142,21 @@ const Sidebar = () => {
 
 export const LayoutWithSidebar = ({ children } : { children: React.ReactNode }) => { 
   const pathname = usePathname();
+  const sidebarShown = pathname !== "/" && pathname !== "/auth/login"
   const isMobile = useIsMobile();
   const [sidebarOpen, setSidebarOpen] = useState(true);  
 
   return (  
     <div className="flex flex-col sm:flex-row h-screen">     
-      { pathname !== "/" && pathname !== "/auth/login" && (  
-        <SidebarContext.Provider value={{sidebarOpen, setSidebarOpen}}>  
-          { isMobile ? (
-            <>
-              <div 
-                onClick={() => setSidebarOpen(prev => !prev)}
-                style={{ fontSize: "1.2rem" }}
-                className="material-symbols-outlined w-fit hover:outline-1 rounded-sm cursor-pointer p-0.5 m-3 mb-1" 
-              > 
-                menu 
-              </div>  
-              <Drawer 
-                open={sidebarOpen} 
-                onClose={() => setSidebarOpen(false)}
-                PaperProps={{ sx: { maxHeight: "100% !important" }}}    
-              >
-                <Sidebar />
-              </Drawer>
-            </>
-          ) : (
-            <Sidebar />
-          )}
+      { sidebarShown && (  
+        <SidebarContext.Provider value={{sidebarOpen, setSidebarOpen}}>   
+          <Sidebar /> 
         </SidebarContext.Provider> 
       )} 
-      <div className="flex-1 h-[calc(100vh-3rem)] sm:h-full ">   
+      <div className={`flex-1 h-[calc(100vh-3rem)] sm:h-full ${isMobile && !sidebarOpen && "pl-[3.5rem]"}`}>   
+        { isMobile && sidebarShown && sidebarOpen && (
+          <div className="overlay" onClick={() => setSidebarOpen(false)} />
+        )}
         {children}  
       </div>
     </div> 

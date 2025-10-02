@@ -41,7 +41,8 @@ const LandingPage = () => {
       </div>
 
       {/* Hero Section */} 
-      <div className="grid lg:grid-cols-2 items-center min-h-screen gap-x-10 gap-y-15 px-10 py-20 md:p-20">    
+       {/* md:p-20 */}
+      <div className="grid lg:grid-cols-2 items-center min-h-screen gap-x-10 gap-y-15 p-15 pt-25 ">    
         <div className="flex flex-col items-start gap-6 my-auto">    
           <h1 className="text-[3.7rem] font-medium mb-3 leading-[4rem]"> 
             The Ultimate Lofi <br></br>  

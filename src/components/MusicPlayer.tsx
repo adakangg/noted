@@ -15,7 +15,7 @@ const WaveForm = ({ musicStopped }: { musicStopped: boolean }) => (
         { WAVEFORM_BARS.map(bar => (
             <div 
                 key={bar.minHeight} 
-                className="waveform-bar w-1 bg-[var(--secondary)]" 
+                className="waveform-bar-anim w-1 bg-[var(--primary)]" 
                 style={{  
                     "--min-height": `${bar.minHeight}px`,
                     "--max-height": `${bar.maxHeight}px`,
